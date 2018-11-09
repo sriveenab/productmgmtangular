@@ -1,0 +1,103 @@
+<div class="container">
+    <h4>Product Management</h4>
+    <div class="product-form-container">
+      <form id="productForm" [formGroup]="productForm" >
+        <div class="form-group">
+          <label>Product Name:</label>
+          <input type="text" name="productName" formControlName="productName" />
+        </div>
+        <div class="form-group">
+          <label>Company :</label>
+          <select name="companyName" formControlName="companyName">
+            <option *ngFor="let company of companies" [value]="company.id"> {{company.name}} </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Date of purchase:</label>
+          <input type="date" name="dateOfPurchase" formControlName="dateOfPurchase" />
+        </div>
+        <div class="form-group">
+          <label>Weight:</label>
+          <input type="text" name="productWeight" formControlName="productWeight" />
+        </div>
+        <div class="form-group">
+          <label>Height:</label>
+          <input type="text" name="productHeight" formControlName="productHeight" />
+        </div>
+        <div class="form-group">
+          <label>Length:</label>
+          <input type="text" name="productLength" formControlName="productLength" />
+        </div>
+        <div class="form-group">
+          <label>Cost:</label>
+          <input type="text" name="productCost" formControlName="productCost" />
+        </div>
+        <div class="form-group">
+          <label>Color:</label>
+          <select name="productColor" formControlName="productColor">
+            <option *ngFor="let color of colors" [value]="color.id" > {{color.name}} </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Category:</label>
+          <div *ngFor="let category of categories">
+            <input type="checkbox" (change)="onCategoryChange($event, category)" [value]="category.id" formControlName="productCategory" />
+            {{category.name}} 
+          </div>
+          
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" (click)="onSave()" >Save</button>
+        </div>
+      </form>
+    </div>
+  
+    <div class="product-table-container">
+      <div class="product-table-title-container">
+        <div class="product-table-title">
+          <h3>Product Details</h3>
+        </div>
+        <div class="product-search">
+          <form [formGroup]="searchForm" >
+              <input type="search" class="searchProduct" name="searchProduct" formControlName="searchProduct" />
+              <button type="button" (click)="searchProducts()" class="btn btn-primary" >Search</button>
+          </form>
+        </div>
+      </div>
+      <table class="products-table table-bordered">
+        <thead>
+          <tr>
+            <th>S.No.</th>
+            <th>Product name</th>
+            <th>Cost</th>
+            <th>Company name</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Length</th>
+            <th>Color</th>
+            <th>Categories</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="!noProducts" >
+          <tr *ngFor="let product of products; let i = index" >
+            <td> {{i+1}} </td>
+            <td [routerLink]="['/product', product.id]"> {{product.name}} </td>
+            <td> {{product.cost}} </td>
+            <td> {{product.company.name}} </td>
+            <td> {{product.weight}} </td>
+            <td> {{product.height}} </td>
+            <td> {{product.length}} </td>
+            <td> {{product.color.name}} </td>
+            <td>
+              <p *ngFor="let category of product.categories"> {{category.name}} </p>
+            </td>
+          </tr>
+        </tbody>
+        
+      </table>
+      <div class="no-products-div" *ngIf="noProducts" >
+          <span> No products to display.</span> 
+      </div>
+    </div>
+  </div>
+  

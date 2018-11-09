@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+table th,td {
+    padding: 0 15px;
+}
+h4 {
+    text-align: center
+}
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.products-table {
+    width: 100%;
+}
+.product-table-title-container {
+    display: block;
+    margin-bottom: 20px;
+}
+.product-table-title {
+    display: inline-block;
+}
+.product-search {
+    display: inline-block;
+    float : right;
+}
+.product-details-container .form-group {
+    display: flex;
+}
+.searchBox {
+    margin-right: 10px;
+}
+.no-products-div {
+    text-align: center;
+    border: 1px solid #eceeef;
+}
+.login-signup-btn-wrapper {
+    margin: 20px 0;
+}

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="product-details-container">
+    <h3>Product details</h3>
+    <div class="form-group">
+      <span>Product name :</span>
+      <p> {{ productName }} </p>
+    </div>
+    <div class="form-group">
+      <span>Cost :</span>
+      <p> {{ cost }} </p>
+    </div>
+    <div class="form-group">
+      <span>Date of manufacture :</span>
+      <p> {{ dateOfManufacture }} </p>
+    </div>
+    <div class="form-group">
+      <span>Weight :</span>
+      <p> {{ weight }} </p>
+    </div>
+    <div class="form-group">
+      <span>Height :</span>
+      <p> {{ height }} </p>
+    </div>
+    <div class="form-group">
+      <span>Length :</span>
+      <p> {{ length }} </p>
+    </div>
+    <div class="form-group">
+      <span>Company :</span>
+      <p> {{ company }} </p>
+    </div>
+    <div class="form-group">
+      <span>Color :</span>
+      <p> {{ color }} </p>
+    </div>
+    <div class="form-group">
+      <span>Category :</span>
+      <p *ngFor="let category of categories">
+        <span>
+          {{ category.name }},
+        </span>
+      </p>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-warning" [routerLink]="['/home']">Go back</button>
+    </div>
+  </div>
+</div>
