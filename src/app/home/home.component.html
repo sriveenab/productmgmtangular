@@ -64,7 +64,7 @@
           </form>
         </div>
       </div>
-      <table class="products-table table-bordered">
+      <table class="products-table table table-bordered">
         <thead>
           <tr>
             <th>S.No.</th>
@@ -76,6 +76,7 @@
             <th>Length</th>
             <th>Color</th>
             <th>Categories</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody *ngIf="!noProducts" >
@@ -90,6 +91,10 @@
             <td> {{product.color.name}} </td>
             <td>
               <p *ngFor="let category of product.categories"> {{category.name}} </p>
+            </td>
+            <td>
+              <button class="btn btn-primary btn-product" (click)="editProduct($event, product)" >Edit</button>
+              <button class="btn btn-danger btn-product" (click)="deleteProduct($event, product)" >Delete</button>
             </td>
           </tr>
         </tbody>

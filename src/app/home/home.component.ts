@@ -171,5 +171,17 @@ export class HomeComponent implements OnInit {
 
     })
   }
+  public editProduct(event, product) {
+
+  }
+
+  public deleteProduct(event, product) {
+    this.service.deleteProduct(product.id).subscribe(response => {
+      console.log("Product deleted");
+      this.getProducts();
+    }, error => {
+
+    })
+  }
 
 }

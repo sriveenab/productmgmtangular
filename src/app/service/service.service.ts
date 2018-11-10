@@ -52,7 +52,9 @@ export class ServiceService {
   getProductById(id): Observable<Response> {
     return this._httpService.get("http://localhost:8085/product/"+id);
   }
-
+  deleteProduct(id): Observable<Response> {
+    return this._httpService.delete("http://localhost:8085/product/"+id);
+  }
   searchProductsByName(name) : Observable<Response> {
     return this._httpService.get("http://localhost:8085/products/"+name);
   }
